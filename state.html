@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USERSTATE</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function Greeting() {
+      const [name, setName] = React.useState('')
+      const [name1, setName1] = React.useState('')
+      const handleChange = event => setName(event.target.value)
+      const handleChange1 = event1 => setName1(event.target.value)
+      return (
+        <div>
+          <form>
+            <label htmlFor="name">FirstName: </label>
+            <input onChange={handleChange} id="name" />
+          </form>
+          <br>
+          </br>
+          <form>
+            <label htmlFor="name">LastName: </label>
+            <input onChange={handleChange1} id="name1" />
+          </form><br></br>
+          {name1 ? <strong>Hello {name} {name1} Welcome!!</strong> : 'Please enter your name!'}
+        </div>
+      )
+    }
+
+    ReactDOM.render(<Greeting />, document.getElementById('root'))
+  </script>
+</body>
+</html>
